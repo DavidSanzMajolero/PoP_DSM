@@ -19,6 +19,19 @@ public class PopProject
         validat = valida(dia, mes, any);
         if (!validat) Console.WriteLine(Error);
         else Console.WriteLine(DataValida);
+
+        Console.ReadLine();
+        Console.Clear();
+
+        const string MenuActions = "Introdueix una acció: \nA.Saltar \nB.Córrer \nC.Ajupir-se \nD.Amagar-se";
+        string Accio, AccioUpp;
+        Console.WriteLine(MenuActions);
+        do
+        {
+            Accio = Console.ReadLine() ?? "";
+            AccioUpp = Accio.ToUpper();
+        } while (AccioUpp != "A" && AccioUpp != "B" && AccioUpp != "C" && AccioUpp != "D");
+        Action(AccioUpp);
     }
 
     public static bool valida(int day, int month, int year)
@@ -71,5 +84,24 @@ public class PopProject
 
         if (day > totalDaysMonth) return false;
         else return true;
+    }
+
+    public static void Action(string Accio) 
+    { 
+        switch (Accio)
+        {
+            case "A":
+                Console.WriteLine("Has saltat");
+                break;
+            case "B":
+                Console.WriteLine("Has corregut");
+                break;
+            case "C":
+                Console.WriteLine("T'has ajupit");
+                break;
+            case "D":
+                Console.WriteLine("T'has amagat");
+                break;
+        }
     }
 }
